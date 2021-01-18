@@ -1,0 +1,249 @@
+//Design created for:
+//- Mobile: 375px
+//- Desktop: 1440px
+
+//COLOR VARIABLES based on style guide names e.g. sv = soft violet,...
+//Primary text colors
+$vddb: hsl(238, 29%, 16%);
+$sr: hsl(14, 88%, 65%);
+//Background gradient
+$sv: hsl(273, 75%, 66%);
+$sb: hsl(240, 73%, 65%);
+//Neutral text
+$vdgb: hsl(237, 12%, 33%);
+$dgb: hsl(240, 6%, 50%);
+//Dividers
+$lgb: hsl(240, 5%, 91%);
+
+//Font import
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+//General properties
+body {
+  font-family: "Kumbh Sans", sans-serif;
+  font-size: 12px;
+  min-height: 100vh;
+  background-image: linear-gradient(to top, $sb, $sv);
+}
+
+main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.card {
+  //Position to center
+  position: relative;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  //Align
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 35em;
+  min-width: 23em;
+  border-radius: 2em;
+  background-color: white;
+  box-shadow: 0px 10px 16px 1px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-images {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-height: 7em;
+}
+
+.mobile-images .illustration {
+  position: relative;
+  right: 1em;
+}
+
+.mobile-images .illustration-pattern {
+  position: relative;
+  top: -7.5em;
+  align-self: center;
+}
+
+.box {
+  position: absolute;
+  z-index: 3;
+  left: -7.8em;
+  bottom: 6.5em;
+  animation: float 2s ease-in-out infinite;
+}
+
+//Box up and down animation
+@keyframes float {
+  0% {
+    transform: translateY(0em);
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.4));
+  }
+  50% {
+    transform: translateY(-0.8em);
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+  }
+  100% {
+    transform: translateY(0em);
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.4));
+  }
+}
+
+.desktop-images {
+  display: flex;
+  position: absolute;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.desktop-illustration {
+  position: relative;
+  z-index: 2;
+  right: 7em;
+  bottom: -0.5em;
+}
+
+.desktop-pattern {
+  position: relative;
+  z-index: 1;
+  left: -88em;
+  top: -6em;
+}
+
+//Whole text content inside the card
+.question-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+}
+
+.contents {
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+  margin: auto 0;
+}
+
+h1 {
+  text-align: center;
+  color: $vddb;
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  display: flex;
+  font-weight: 400;
+  justify-content: space-between;
+  font-size: 13px;
+  margin: 1.2em 0 1.2em 0;
+  color: $vdgb;
+  z-index: 4;
+  width: 100%;
+}
+
+h2:hover {
+  color: $sr;
+  cursor: pointer;
+}
+
+//Drop down arrows
+.arrow {
+  align-self: center;
+  margin-left: 0.5em;
+  position: absolute;
+  right: -1.2em;
+  top: 1.7em;
+}
+
+//Class that gets added upon click to rotate arrow image
+.rotate {
+  transform: rotate(180deg);
+}
+
+//Onclick text appear
+.hidden-text {
+  max-width: 20em;
+  margin-bottom: 1em;
+  color: #4a4b5e;
+}
+
+//Class that gets added upon click to hide content
+.hide {
+  display: none;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+//Text divider
+hr {
+  border: 0;
+  border-top: 2px solid $lgb;
+  height: 2px;
+  width: 100%;
+}
+
+//Frontend Mentor attribution
+.attribution {
+  font-family: "Source Code Pro", monospace;
+  position: relative;
+  margin: 0.5em;
+  text-align: center;
+  font-weight: bold;
+  color: $vddb;
+}
+
+.attribution a {
+  color: $vddb;
+}
+
+//Design for 1440px width display
+@media only screen and (min-width: 1440px) {
+  .card {
+    min-height: 37em;
+    width: 55%;
+    align-items: flex-end;
+  }
+
+  .desktop-images {
+    overflow: hidden;
+  }
+
+  .contents {
+    align-items: flex-start;
+    padding-right: 4em;
+  }
+
+  .mobile-images {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1440px) {
+  .desktop-images {
+    display: none;
+  }
+  .box-illustration {
+    display: none;
+  }
+  body {
+    padding-top: 6em;
+  }
+}
