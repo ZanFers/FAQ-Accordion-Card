@@ -214,8 +214,7 @@ hr {
   color: $vddb;
 }
 
-//Design for 1440px width display
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1399px) {
   .card {
     min-height: 37em;
     width: 55%;
@@ -236,7 +235,7 @@ hr {
   }
 }
 
-@media only screen and (max-width: 1440px) {
+@media only screen and (max-width: 1399px) {
   .desktop-images {
     display: none;
   }
